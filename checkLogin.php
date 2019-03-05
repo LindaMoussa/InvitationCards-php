@@ -11,7 +11,8 @@ $emailErr="";
 $q ="SELECT * FROM `inv_users` WHERE password='$userPassword' and email='$userEmail'";
 
 $result = mysqli_query($con , $q);
-$_SESSION["favanimal"] = "cat";
+//$_SESSION["favanimal"] = "cat";
+$_SESSION['wrongEorP'] = "";
 
 if(mysqli_num_rows($result) > 0)
 {
@@ -24,12 +25,17 @@ else
 //    $emailErr = "Wrong Email or Password! ";
     
    $_SESSION['wrongEorP'] = "Wrong Email or Password!, Please try again ";
-   $_POST['errormsg']="Wrong Email or Password ! Please try againnnn";
     
-    $cookie_name = "wrongMsg";
-$cookie_value = "Wrong Email or Password!, Please try again.";
-setcookie($cookie_name, $cookie_value, time()  - 3600, "/");
-    header('location:index.php');
+header('Location: '.$_SERVER['PHP_SELF']);
+die;
+    
+    //   $_POST['errormsg']="Wrong Email or Password ! Please try againnnn";
+    
+//    $cookie_name = "wrongMsg";
+//$cookie_value = "Wrong Email or Password!, Please try again.";
+//setcookie($cookie_name, $cookie_value, time()  - 3600, "/");
+    
+//    header('location:login.php');
 //echo 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']; 
 
 //    echo 'alert';

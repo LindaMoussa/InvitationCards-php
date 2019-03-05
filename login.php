@@ -1,4 +1,10 @@
+<!--lazm arga3 l login fy kol page mynfa3sh a3mlha kdaa 3shan l errors w a3ml tart session fo2 fy kol page -->
 
+<!--
+<?php 
+//session_start();
+?>
+-->
 
   <div class="login-card">
       <h2>Log In</h2> 
@@ -10,7 +16,18 @@
           <div class="form-group">          
               <input name="userpassword" class="form-control my-3" placeholder="Password" type="password" required/>   
           </div>
-          <span class="error"> <? php session_start(); echo $_SESSION['wrongEorP']; $_SESSION["favanimal"] = "cat"; echo $_COOKIE['wrongMsg']; ?></span>
+          <span class="error">
+              
+          <?php 
+              session_start();
+              if(isset($_SESSION['wrongEorP']))
+                  echo $_SESSION['wrongEorP'];
+              
+              ?>    
+             
+          
+          
+          </span>
           <div class="form-group">          
               <input type="hidden" name="errormsg" class="form-control my-3" value="<?php echo $_POST['errormsg']; ?>"/>   
           </div>
